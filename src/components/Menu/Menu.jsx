@@ -1,11 +1,14 @@
+import { NavLink } from "react-router-dom";
 import estilos from "./Menu.module.css";
 const Menu = () => {
   return (
     <nav className={estilos.menu}>
-      <a href="/">Blog</a>
-      <a href="/">Produtos</a>
-      <a href="/">Sobre</a>
-      <a href="/">Contato</a>
+      <NavLink exact to="/">
+        Blog
+      </NavLink>
+      <NavLink to="/produtos">Produtos</NavLink>
+      <NavLink to="/sobre">Sobre</NavLink>
+      <NavLink to="/contato">Contato</NavLink>
     </nav>
   );
 };
