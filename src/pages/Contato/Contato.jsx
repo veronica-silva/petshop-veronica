@@ -4,7 +4,7 @@ const Contato = () => {
   return (
     <section>
       <h2 className={estilos.titulo_secao}>Fale conosco</h2>
-      <Caixa id="contato">
+      <Caixa>
         <p>em breve</p>
         <p>teremos</p>
         <p>um formulário</p>

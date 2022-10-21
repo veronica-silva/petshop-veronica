@@ -5,7 +5,7 @@ const Pagina404 = () => {
   return (
     <section className={estilos.pagina404}>
       <h2 className={estilos.titulo_secao}>Au, au, au foi mal!</h2>
-      <Caixa id="pagina404">
+      <Caixa>
         <h3>Pagina não encontrada!</h3>
         <img
           src={catiorrinho404}
