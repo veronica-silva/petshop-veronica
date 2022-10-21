@@ -61,9 +61,4 @@ h2 {
 #produtos,
 #contato,
 #pagina404 {
-  width: 100%;
-  background-color: #f7f7f7;
-  border-radius: var(--borda-arredondada);
-  box-shadow: var(--sombra-box);
-  padding: 1rem;
 }
