@@ -1,9 +1,7 @@
 import estilos from "./Caixa.module.css";
-const Caixa = (props) => {
+const Caixa = (listaDeClasses, children) => {
   return (
-    <div className={`${estilos.caixa} ${props.listaDeClasses || ""}`}>
-      {props.children}
-    </div>
+    <div className={`${estilos.caixa} ${listaDeClasses || ""}`}>{children}</div>
   );
 };
 
