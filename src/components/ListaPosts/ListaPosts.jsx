@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import estilos from "./ListaPosts.module.css";
 import serverApi from "../../api/servidor-api";
+import Loading from "../Loading/Loading";
+
 const ListaPosts = () => {
   const [posts, setPosts] = useState([]);
-  console.log(serverApi);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getPosts() {
@@ -11,12 +13,17 @@ const ListaPosts = () => {
         const resposta = await fetch(`${serverApi}/posts`);
         const dados = await resposta.json();
         setPosts(dados);
+        setLoading(false);
       } catch (error) {
-        console.log("Deu ruim aí hein chapa " + error.message);
+        console.error("Deu ruim aí hein chapa " + error.message);
       }
     }
     getPosts();
   }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className={estilos.lista_posts}>
