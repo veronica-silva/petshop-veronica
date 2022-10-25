@@ -5,8 +5,6 @@ const ListaPosts = () => {
   const [posts, setPosts] = useState([]);
   console.log(serverApi);
 
-  const postsTemp = [];
-
   useEffect(() => {
     async function getPosts() {
       try {
@@ -26,8 +24,6 @@ const ListaPosts = () => {
         <article className={estilos.post} key={id}>
           <h3>{titulo}</h3>
           <h4>{subtitulo}</h4>
-          <h5>{categoria}</h5>
-          <p>{descricao}</p>
         </article>
       ))}
     </div>
