@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import estilos from "./ListaPosts.module.css";
 import serverApi from "../../api/servidor-api";
 import Loading from "../Loading/Loading";
+import ArtigoPost from "../ArtigoPost/ArtigoPost";
 
 const ListaPosts = () => {
   const [posts, setPosts] = useState([]);
@@ -27,11 +28,13 @@ const ListaPosts = () => {
 
   return (
     <div className={estilos.lista_posts}>
-      {posts.map(({ id, titulo, subtitulo, descricao, categoria }) => (
-        <article className={estilos.post} key={id}>
-          <h3>{titulo}</h3>
-          <h4>{subtitulo}</h4>
-        </article>
+      {posts.map(({ id, titulo, subtitulo }) => (
+        <ArtigoPost
+          key={id}
+          titulo={titulo}
+          subtitulo={subtitulo}
+          classe={estilos.post}
+        />
       ))}
     </div>
   );
