@@ -28,3 +28,6 @@
   transform: scale(1.05);
   cursor: pointer;
 }
+h2::before {
+  content: "Dados do post ";
+}

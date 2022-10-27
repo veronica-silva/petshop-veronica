@@ -8,3 +8,7 @@
   box-shadow: none;
   background-color: transparent;
 }
+
+h2::before {
+  content: " ";
+}

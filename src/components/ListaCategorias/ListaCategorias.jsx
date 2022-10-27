@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import estilos from "./ListaCategorias.module.css";
 import serverApi from "../../api/servidor-api";
 import Loading from "../Loading/Loading";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const ListaCategorias = () => {
   const [categorias, setCategorias] = useState([]);
@@ -28,7 +28,9 @@ const ListaCategorias = () => {
       <ul>
         {categorias.map(({ id, nome }) => (
           <li key={id} nome={nome}>
-            <Link to={`/categoria/${nome}`}>{nome}</Link>
+            <NavLink activeClassName={estilos.active} to={`/categoria/${nome}`}>
+              {nome}
+            </NavLink>
           </li>
         ))}
       </ul>

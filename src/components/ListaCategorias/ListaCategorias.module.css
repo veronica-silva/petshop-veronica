@@ -24,7 +24,11 @@
   border-radius: var(--borda-arredondada);
 }
 
-.lista_categorias a:hover,
-.lista_categorias a:focus {
+.lista_categorias a:hover {
   background-color: #2f88a8;
+}
+
+.lista_categorias a:active,
+.lista_categorias a:focus {
+  background-color: #0b0a3f;
 }
