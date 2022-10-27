@@ -28,7 +28,7 @@ const ListaCategorias = () => {
       <ul>
         {categorias.map(({ id, nome }) => (
           <li key={id} nome={nome}>
-            <Link to={`/categorias/${nome}`}>{nome}</Link>
+            <Link to={`/categoria/${nome}`}>{nome}</Link>
           </li>
         ))}
       </ul>
