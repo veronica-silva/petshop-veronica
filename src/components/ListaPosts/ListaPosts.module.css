@@ -29,9 +29,5 @@
   cursor: pointer;
 }
 h2::before {
-  content: " ";
-}
-
-.semPost {
-  text-align: center;
+  content: "Dados do post ";
 }

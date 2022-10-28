@@ -21,14 +21,14 @@ const ListaCategorias = () => {
     getCategorias();
   }, []);
   if (loading) {
-    return <Loading load="Categoria" />;
+    return <Loading />;
   }
   return (
     <div className={estilos.lista_categorias}>
       <ul>
         {categorias.map(({ id, nome }) => (
           <li key={id} nome={nome}>
-            <NavLink activeClassName={estilos.ativo} to={`/categoria/${nome}`}>
+            <NavLink activeClassName={estilos.active} to={`/categoria/${nome}`}>
               {nome}
             </NavLink>
           </li>

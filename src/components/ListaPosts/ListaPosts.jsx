@@ -23,26 +23,22 @@ const ListaPosts = (props) => {
   }, [props.url]);
 
   if (loading) {
-    return <Loading load="Posts" />;
+    return <Loading />;
   }
 
-  if (posts.length !== 0) {
-    return (
-      <div className={estilos.lista_posts}>
-        {posts.map(({ id, titulo, subtitulo }) => (
-          <ArtigoPost
-            key={id}
-            id={id}
-            titulo={titulo}
-            subtitulo={subtitulo}
-            classe={estilos.post}
-          />
-        ))}
-      </div>
-    );
-  } else {
-    return <h2 className={estilos.semPost}>Ainda não há posts</h2>;
-  }
+  return (
+    <div className={estilos.lista_posts}>
+      {posts.map(({ id, titulo, subtitulo }) => (
+        <ArtigoPost
+          key={id}
+          id={id}
+          titulo={titulo}
+          subtitulo={subtitulo}
+          classe={estilos.post}
+        />
+      ))}
+    </div>
+  );
 };
 
 export default ListaPosts;
