@@ -1,26 +1,44 @@
 import estilos from "./Contato.module.css";
 import Caixa from "../../components/Caixa/Caixa";
 import { TextField, Button } from "@mui/material";
+import serverApi from "../../api/servidor-api";
 import { useState } from "react";
 const Contato = () => {
-  const inputNome = (event) => {
-    setNome(event.target.value);
+  const inputNome = (event) => setNome(event.target.value);
+  const inputEmail = (event) => setEmail(event.target.value);
+  const inputMensagem = (event) => setMensagem(event.target.value);
+
+  const enviarContato = async (event) => {
+    event.preventDefault();
+    const opcoes = {
+      method: "POST",
+      body: JSON.stringify({ nome, email, mensagem }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    };
+    console.log(nome, email, mensagem);
+    try {
+      await fetch(`${serverApi}/contatos`, opcoes);
+      alert("Dados enviados!");
+    } catch (error) {
+      console.log("Deu ruim " + error.message);
+    }
   };
-  const inputEmail = (event) => {
-    setEmail(event.target.value);
-  };
-  const inputMensagem = (event) => {
-    setMensagem(event.target.value);
-  };
+
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [mensagem, setMensagem] = useState("");
-
+  let desabilitado = !nome || !email || !mensagem;
   return (
     <section>
       <h2 className={estilos.titulo_secao}>Fale conosco</h2>
       <Caixa>
-        <form method="post" className={estilos.formulario}>
+        <form
+          method="post"
+          className={estilos.formulario}
+          onSubmit={enviarContato}
+        >
           <div>
             <TextField
               onChange={inputNome}
@@ -56,7 +74,9 @@ const Contato = () => {
             />
           </div>
           <div>
-            <Button variant="outlined">Enviar Mensagem</Button>
+            <Button disabled={desabilitado} type="submit" variant="outlined">
+              Enviar Mensagem
+            </Button>
           </div>
         </form>
       </Caixa>
