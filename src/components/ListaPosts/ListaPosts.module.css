@@ -29,5 +29,9 @@
   cursor: pointer;
 }
 h2::before {
-  content: "Dados do post ";
+  content: " ";
+}
+
+.centraliza {
+  text-align: center;
 }
