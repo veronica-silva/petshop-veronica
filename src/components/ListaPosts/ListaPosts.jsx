@@ -10,6 +10,7 @@ const ListaPosts = (props) => {
 
   useEffect(() => {
     async function getPosts() {
+      setLoading(true);
       try {
         const resposta = await fetch(`${serverApi}/${props.url || "posts"}`);
         const dados = await resposta.json();
