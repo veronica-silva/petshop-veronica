@@ -1,15 +1,19 @@
 {
   "short_name": "PetShop",
   "name": "App criado com react como uma SPA",
+  "description": "Exemplo de app react instalável no dispositivo",
   "icons": [
     {
       "src": "favicon.png",
       "type": "image/png",
-      "sizes": "128x128"
+      "sizes": "256x256"
     }
   ],
   "start_url": ".",
+  "scope": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "lang": "pt-br"
 }
