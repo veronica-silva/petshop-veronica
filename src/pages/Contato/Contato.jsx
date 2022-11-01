@@ -3,11 +3,13 @@ import Caixa from "../../components/Caixa/Caixa";
 import { TextField, Button } from "@mui/material";
 import serverApi from "../../api/servidor-api";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 const Contato = () => {
   const inputNome = (event) => setNome(event.target.value);
   const inputEmail = (event) => setEmail(event.target.value);
   const inputMensagem = (event) => setMensagem(event.target.value);
 
+  let history = useHistory();
   const enviarContato = async (event) => {
     event.preventDefault();
     const opcoes = {
@@ -21,6 +23,7 @@ const Contato = () => {
     try {
       await fetch(`${serverApi}/contatos`, opcoes);
       alert("Dados enviados!");
+      history.push("/");
     } catch (error) {
       console.log("Deu ruim " + error.message);
     }
@@ -29,6 +32,7 @@ const Contato = () => {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [mensagem, setMensagem] = useState("");
+
   let desabilitado = !nome || !email || !mensagem;
   return (
     <section>
@@ -42,7 +46,7 @@ const Contato = () => {
           <div>
             <TextField
               onChange={inputNome}
-              helperText="Informe o seu nome"
+              helperText={!nome ? "Informe o seu nome" : ""}
               type="text"
               fullWidth
               id="outlined-basic"
@@ -53,7 +57,7 @@ const Contato = () => {
           <div>
             <TextField
               onChange={inputEmail}
-              helperText="Informe o seu e-mail"
+              helperText={!email ? "Informe o seu e-mail" : ""}
               type="email"
               fullWidth
               id="outlined-basic"
@@ -64,7 +68,7 @@ const Contato = () => {
           <div>
             <TextField
               onChange={inputMensagem}
-              helperText="Escreva a sua mensagem"
+              helperText={!mensagem ? "Escreva a sua mensagem" : ""}
               type="text"
               fullWidth
               id="outlined-multiline-static"
