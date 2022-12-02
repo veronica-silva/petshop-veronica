@@ -4,7 +4,7 @@ import serverApi from "../../api/servidor-api";
 import Loading from "../Loading/Loading";
 import ArtigoPost from "../ArtigoPost/ArtigoPost";
 
-const ListaPosts = (props) => {
+const ListaPosts = ({ categoria }) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -23,8 +23,17 @@ const ListaPosts = (props) => {
             titulo: dados[post].titulo,
             subtitulo: dados[post].subtitulo,
             categoria: dados[post].categoria,
+          };
+
+          listaDePosts.push(objetoPost);
+
+          if (categoria) {
+            listaDePosts = listaDePosts.filter(
+              (cadaPost) => cadaPost.categoria === categoria
+            );
           }
-          listaDePosts.push(objetoPost)
+
+
         }
 
 
@@ -35,7 +44,7 @@ const ListaPosts = (props) => {
       }
     }
     getPosts();
-  }, [props.url]);
+  }, [categoria]);
 
   if (loading) {
     return <Loading load="Posts..." />;
