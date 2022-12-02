@@ -10,9 +10,21 @@ const ListaCategorias = () => {
   useEffect(() => {
     async function getCategorias() {
       try {
-        const resposta = await fetch(`${serverApi}/categorias`);
+        const resposta = await fetch(`${serverApi}/categorias.json`);
         const dados = await resposta.json();
-        setCategorias(dados);
+        const listaDeCategorias = []
+
+        for (const categoria in dados) {
+          const objetoCategoria = {
+            id: categoria,
+            nome: dados[categoria].nome
+          }
+          listaDeCategorias.push(objetoCategoria)
+        }
+
+
+
+        setCategorias(listaDeCategorias);
         setLoading(false);
       } catch (error) {
         console.error("Deu ruim aí hein chapa " + error.message);
