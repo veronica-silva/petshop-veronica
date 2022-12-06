@@ -14,11 +14,11 @@ const Post = () => {
   useEffect(() => {
     async function getPost() {
       try {
-        const resposta = await fetch(`${serverApi}/posts/${id}`);
+        const resposta = await fetch(`${serverApi}/posts/${id}.json`);
         const dados = await resposta.json();
         setUmPost(dados);
         setLoading(false);
-        if (Object.keys(dados).length === 0) {
+        if (!dados) {
           history.push("/404");
         }
       } catch (error) {

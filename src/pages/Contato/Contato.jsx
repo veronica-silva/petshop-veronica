@@ -21,7 +21,7 @@ const Contato = () => {
     };
     console.log(nome, email, mensagem);
     try {
-      await fetch(`${serverApi}/contatos`, opcoes);
+      await fetch(`${serverApi}/contatos.json`, opcoes);
       alert("Dados enviados!");
       history.push("/");
     } catch (error) {
