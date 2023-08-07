@@ -157,7 +157,7 @@ _Dica CSS:_ https://code.tutsplus.com/pt/tutorials/the-30-css-selectors-you-must
 
 ---
 
-## Para usar a API via rede local
+## Para usar a API via rede local:
 
 ### package.json
 
