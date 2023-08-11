@@ -2,7 +2,7 @@
 
 Projeto iniciado através do [CRA - Create React App](https://github.com/facebook/create-react-app).
 
-Obs.: este projeto poderia ser criado também a partir do Vite.
+Obs.: este projeto poderia ser criado também a partir do [Vite](https://vitejs.dev/guide/why.html).
 
 ## Execução do app
 
