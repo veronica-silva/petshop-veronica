@@ -13,7 +13,7 @@ E para executar, sempre use `npm start` e acesse `localhost:3000`.
 
 ## Sobre Módulos CSS
 
-O uso de módulos CSS garante escopo de estilos, ou seja, o CSS criado em módulos só é aplicado no componente em que o módulo foi importado.
+O uso de módulos CSS garante escopo de estilos, ou seja, o CSS criado em módulos só é aplicado no componente em que o módulo foi importado;
 
 Arquivos de módulo devem ser nomeados como `Componente.module.css`.
 
